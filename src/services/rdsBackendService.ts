@@ -8,6 +8,7 @@ export const getMissedUpdatesUsers = async (env: env, cursor: string | undefined
 
 		const url = new URL(`${baseUrl}/tasks/users/discord`);
 		url.searchParams.append('q', 'status:missed-updates -days-count:3');
+		url.searchParams.append('includeHistoricalOoo', 'true');
 		if (cursor) {
 			url.searchParams.append('cursor', cursor);
 		}

@@ -22,6 +22,7 @@ describe('rdsBackendService', () => {
 			const result = await getMissedUpdatesUsers({}, cursor);
 			const url = new URL(`${config({}).RDS_BASE_API_URL}/tasks/users/discord`);
 			url.searchParams.append('q', 'status:missed-updates -days-count:3');
+			url.searchParams.append('includeHistoricalOoo', 'true');
 			expect(fetch).toHaveBeenCalledWith(url, {
 				method: 'GET',
 				headers: {
@@ -40,6 +41,7 @@ describe('rdsBackendService', () => {
 			const result = await getMissedUpdatesUsers({}, 'cursorValue');
 			const url = new URL(`${config({}).RDS_BASE_API_URL}/tasks/users/discord`);
 			url.searchParams.append('q', 'status:missed-updates -days-count:3');
+			url.searchParams.append('includeHistoricalOoo', 'true');
 			url.searchParams.append('cursor', 'cursorValue');
 			expect(fetch).toHaveBeenCalledWith(url, {
 				method: 'GET',
