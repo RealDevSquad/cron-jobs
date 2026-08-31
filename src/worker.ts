@@ -2,7 +2,7 @@ import { addMissedUpdatesRoleHandler, callDiscordNicknameBatchUpdateHandler, syn
 import { env } from './types/global.types';
 
 const EVERY_12_HOURS = '0 */12 * * *';
-const EVERY_30_MINUTES = '*/30 * * * *';
+const EVERY_6_HOURS = '0 */6 * * *';
 
 export default {
 	// eslint-disable-next-line no-unused-vars
@@ -13,7 +13,7 @@ export default {
 				break;
 			}
 
-			case EVERY_30_MINUTES: {
+			case EVERY_6_HOURS: {
 				await syncApiHandler(env);
 				break;
 			}
